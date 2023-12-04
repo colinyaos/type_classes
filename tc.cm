@@ -1,5 +1,8 @@
 Group
     structure TypeClass
-
+    structure Eval
+    structure NumD
 is 
     typeclass.sml
+    eval.sml
+    numd.sml

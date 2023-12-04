@@ -9,9 +9,9 @@ structure TypeClass = struct
 
 
     fun same_type (t1, t2) = case (t1, t2) of 
-            (Int _, Int _) => True
-        |   (Float _, Float _) => True
-        | _  => False
+            (Int _, Int _) => true
+        |   (Float _, Float _) => true
+        | _  => false
 
 
         (* | App of term * term
