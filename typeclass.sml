@@ -8,6 +8,12 @@ structure TypeClass = struct
         | Negate of term
 
 
+    fun same_type (t1, t2) = case (t1, t2) of 
+            (Int _, Int _) => True
+        |   (Float _, Float _) => True
+        | _  => False
+
+
         (* | App of term * term
         | Lam of term * term
         | Over of string * type_class * term
