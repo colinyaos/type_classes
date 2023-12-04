@@ -25,7 +25,7 @@ functor NumFloat() : NUM =
     type t = real
     val add = op+
     val mul = op*
-    val negate = ~.
+    val negate = ~
 end;
 
 (* Example usage of the NumInt functor *)
