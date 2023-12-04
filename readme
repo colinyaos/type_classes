@@ -1,1 +1,7 @@
 implementation of type classes in sml
+
+Basic structure of individual terms is in typeclass.sml. 
+The specification for the data structure of instances of type classes is in numd.sml. 
+The main logic of the program is in eval.sml:
+    - type_applicator looks up the type in the typeclass instance, either returning the appropriate function or performing a currying step to ensure type safety
+    - eval is the main function that evaluates the expression, using type_applicator to perform the appropriate operations
