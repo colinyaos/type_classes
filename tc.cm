@@ -2,7 +2,15 @@ Group
     structure TypeClass
     structure Eval
     structure NumD
+    structure Token
+    structure Scan
+    structure Parse
 is 
+    $/basis.cm
+    $/smlnj-lib.cm
     typeclass.sml
     eval.sml
     numd.sml
+    token.sml
+    scan.sml
+    parse.sml
