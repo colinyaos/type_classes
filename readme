@@ -8,4 +8,4 @@ The main logic of the program is in eval.sml:
 
 Some notes about syntax
     - Parser does not currently support order of operations. All binary operations must be parenthesized.
-    - Complex numbers are supported (e.g. 1+2i can be written as (1,2)) but due to parsing complications, complex numbers with negative coefficients are not supported. Note that the underlying computation on the terms themselves does work. 
+    - Complex numbers are supported (e.g. 1+2i can be written as (1,2)). Complex coefficients must be literal numbers (e.g. 1, ~2, 3.0); expressions are not permitted.
