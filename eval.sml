@@ -40,8 +40,8 @@ structure Eval = struct
 
   fun eval (TC.Int i) = TC.Int i
     | eval (TC.Float f) = TC.Float f
-    | eval (TC.Add (t1, t2)) = type_applicator (num_dict, "add", t1) t2
-    | eval (TC.Mult (t1, t2)) = type_applicator (num_dict, "mul", t1) t2
-    | eval (TC.Negate t1) = type_applicator (num_dict, "neg", t1) t1
+    | eval (TC.Add (t1, t2)) = type_applicator (num_dict, "add", (eval t1)) (eval t2)
+    | eval (TC.Mult (t1, t2)) = type_applicator (num_dict, "mul", (eval t1)) (eval t2)
+    | eval (TC.Negate t1) = type_applicator (num_dict, "neg", (eval t1)) (eval t1)
   
   end
