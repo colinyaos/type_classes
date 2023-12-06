@@ -9,6 +9,7 @@ end = struct
 
     fun isDigit c = (ord c > 47) andalso (ord c < 58)
 
+    (* scanNumberHelper : input, isFloat, rest of string *)
     fun scanNumberHelper ([], b) = ([], b, [])
       | scanNumberHelper ((c :: cs), b) =
         if isDigit c
@@ -34,6 +35,7 @@ end = struct
       | next (#"-" :: cs) = SOME (T.Minus, cs)
       | next (#"*" :: cs) = SOME (T.Times, cs)
       | next (#"~" :: cs) = SOME (T.Negate, cs)
+      | next (#"," :: cs) = SOME (T.Comma, cs) 
       | next (c :: cs) =
         if Char.isSpace c
         then next cs

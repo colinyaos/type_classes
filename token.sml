@@ -5,6 +5,7 @@ structure Token = struct
     | Float of real
     | LParen
     | RParen
+    | Comma
     | Plus
     | Minus
     | Times
