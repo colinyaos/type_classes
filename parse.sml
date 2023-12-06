@@ -66,8 +66,14 @@ end = struct
                        | (A.Int x, A.Float y) => SOME (A.Complex (Real.fromInt x, y), toks'')
                        | (A.Float x, A.Int y) => SOME (A.Complex (x, Real.fromInt y), toks'')
                        | (A.Float x, A.Float y) => SOME (A.Complex (x, y), toks'')
-                       | (A.Negate x, _) => raise Fail "Complex numbers with negative components currently not supported"
-                       | (_, A.Negate y) => raise Fail "Complex numbers with negative components currently not supported"
+                       | (A.Negate (A.Int x), A.Int y) => SOME (A.Complex (Real.fromInt (~x), Real.fromInt y), toks'')
+                       | (A.Negate (A.Int x), A.Float y) => SOME (A.Complex (Real.fromInt (~x), y), toks'')
+                       | (A.Negate (A.Float x), A.Int y) => SOME (A.Complex (~x, Real.fromInt y), toks'')
+                       | (A.Negate (A.Float x), A.Float y) => SOME (A.Complex (~x, y), toks'')
+                       | (A.Int x, A.Negate (A.Int y)) => SOME (A.Complex (Real.fromInt x, Real.fromInt (~y)), toks'')
+                       | (A.Int x, A.Negate (A.Float y)) => SOME (A.Complex (Real.fromInt x, ~y), toks'')
+                       | (A.Float x, A.Negate (A.Int y)) => SOME (A.Complex (x, Real.fromInt (~y)), toks'')
+                       | (A.Float x, A.Negate (A.Float y)) => SOME (A.Complex (x, ~y), toks'')
                        | _ => raise Fail "Invalid component in complex number"
                        )
                     | NONE => NONE
