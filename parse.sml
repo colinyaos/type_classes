@@ -8,6 +8,11 @@ end = struct
   structure T = Token
   structure A = TypeClass
   
+  fun parenWrap [] = []
+    | parenWrap toks = (case toks of
+       T.LParen :: _ => toks
+     | unparen => (T.LParen :: unparen) @ [T.RParen])
+
   fun next [] = NONE
     | next ((T.Int i) :: toks) = SOME ((A.Int i), toks)
     | next ((T.Float f) :: toks) = SOME ((A.Float f), toks)
@@ -65,11 +70,11 @@ end = struct
 
   fun parse toklist =
     let
-      val out = next toklist
+      val out = next (parenWrap toklist)
     in
       (case out
         of SOME (term, _) => term
-        | NONE => raise Fail "oopsie"
+        | NONE => raise Fail "parse error"
       )
     end
 		     
