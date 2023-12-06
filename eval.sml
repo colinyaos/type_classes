@@ -34,7 +34,7 @@ structure Eval = struct
 
   val num_dict = [
     (TC.Int 0, NumD.NumD (addInt, mulInt, negInt)),
-    (TC.Float 0.0, NumD.NumD (addFlt, mulFlt, negFlt))
+    (TC.Float 0.0, NumD.NumD (addFlt, mulFlt, negFlt)),
     (TC.Complex (0.0, 0.0), NumD.NumD (addCmp, mulCmp, negCmp))
   ]
   
