@@ -7,11 +7,6 @@ end = struct
 
   structure T = Token
   structure A = TypeClass
-  
-  fun parenWrap [] = []
-    | parenWrap toks = (case toks of
-       T.LParen :: _ => toks
-     | unparen => (T.LParen :: unparen) @ [T.RParen])
 
   fun next [] = NONE
     | next ((T.Int i) :: toks) = SOME ((A.Int i), toks)
@@ -88,7 +83,7 @@ end = struct
 
   fun parse toklist =
     let
-      val out = next (parenWrap toklist)
+      val out = next toklist
     in
       (case out
         of SOME (term, _) => term
