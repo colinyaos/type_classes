@@ -5,6 +5,7 @@ Group
     structure Token
     structure Scan
     structure Parse
+    structure Compile
 is 
     $/basis.cm
     $/smlnj-lib.cm
@@ -14,3 +15,4 @@ is
     token.sml
     scan.sml
     parse.sml
+    compile.sml

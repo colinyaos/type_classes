@@ -5,3 +5,6 @@ The specification for the data structure of instances of type classes is in numd
 The main logic of the program is in eval.sml:
     - type_applicator looks up the type in the typeclass instance, either returning the appropriate function or performing a currying step to ensure type safety
     - eval is the main function that evaluates the expression, using type_applicator to perform the appropriate operations
+
+Some notes about syntax
+    - Parser does not currently support order of operations. All binary operations must be parenthesized.

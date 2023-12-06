@@ -21,4 +21,11 @@ structure TypeClass = struct
 
     (* datatype type_class
         =  *)
+
+    fun tos (Int i) = Int.toString i
+      | tos (Float f) = Real.toString f
+      | tos (Add (t1, t2)) = "(" ^ tos(t1) ^ " + " ^ tos(t2) ^ ")"
+      | tos (Mult (t1, t2)) = "(" ^ tos(t1) ^ " * " ^ tos(t2) ^ ")"
+      | tos (Negate t1) = "~" ^ tos(t1)
+
 end
