@@ -11,6 +11,14 @@ end = struct
   fun next [] = NONE
     | next ((T.Int i) :: toks) = SOME ((A.Int i), toks)
     | next ((T.Float f) :: toks) = SOME ((A.Float f), toks)
+    | next ((T.Negate) :: toks) =
+      let
+        val t1 = next toks
+      in
+        (case t1 of
+           SOME (term1, toks') => SOME ((A.Negate term1), toks')
+         | NONE => raise Fail "error")
+      end
     | next (T.LParen :: toks) =
       let
         val t1 = next toks
