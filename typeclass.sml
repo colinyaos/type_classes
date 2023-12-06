@@ -3,6 +3,7 @@ structure TypeClass = struct
     datatype term 
         = Int of int
         | Float of real
+        | Complex of real * real
         | Add of term * term
         | Mult of term * term
         | Negate of term
@@ -11,6 +12,7 @@ structure TypeClass = struct
     fun same_type (t1, t2) = case (t1, t2) of 
             (Int _, Int _) => true
         |   (Float _, Float _) => true
+        |   (Complex _, Complex _) => true
         | _  => false
 
 
