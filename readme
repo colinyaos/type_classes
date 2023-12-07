@@ -6,6 +6,11 @@ The main logic of the program is in eval.sml:
     - type_applicator looks up the type in the typeclass instance, either returning the appropriate function or performing a currying step to ensure type safety
     - eval is the main function that evaluates the expression, using type_applicator to perform the appropriate operations
 
+To run:
+    1. run sml
+    2. run CM.make("tc.cm");
+    3. run Compile.compile([expression]), or Compile.compileAndPrint([expr]) to print the result as a string
+
 Some notes about syntax
-    - Parser does not currently support order of operations. All binary operations must be parenthesized.
-    - Complex numbers are supported (e.g. 1+2i can be written as (1,2)). Complex coefficients must be literal numbers (e.g. 1, ~2, 3.0); expressions are not permitted.
+    - Parser does not currently support order of operations. All BINARY OPERATIONS MUST BE PARENTHESIZED.
+    - Complex numbers are supported, and are written as a comma-separated pair (e.g. 1+2i can be written as (1,2)). Complex coefficients must be literal numbers (e.g. 1, ~2, 3.0); expressions are not permitted.
